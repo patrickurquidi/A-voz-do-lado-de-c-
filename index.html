@@ -3,334 +3,231 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A Voz do Lado de Cá | Patrick Urquidi</title>
+    <title>A Voz do Lado de Cá - Patrick Urquidi</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'burnt-orange': '#cc5500',
-                        'wine': '#722f37',
-                    }
-                }
-            }
-        }
-    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:wght@400;600;700&display=swap');
-        
         body {
             font-family: 'Montserrat', sans-serif;
+            scroll-behavior: smooth;
         }
-        
         .title-font {
             font-family: 'Playfair Display', serif;
         }
-        
-        .book-shadow {
-            box-shadow: 15px 15px 0px rgba(204, 85, 0, 0.3);
+        .book-cover {
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            transition: all 0.3s ease;
         }
-        
-        .highlight-card:hover {
+        .book-cover:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.3);
         }
-        
         .testimonial-card {
             transition: all 0.3s ease;
         }
-        
         .testimonial-card:hover {
-            transform: scale(1.03);
+            transform: translateY(-5px);
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #6b46c1 0%, #805ad5 100%);
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .highlight {
+            position: relative;
+            display: inline-block;
+            z-index: 0;
+        }
+        .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 30%;
+            background-color: rgba(139, 92, 246, 0.3);
+            z-index: -1;
+            transform: skewY(-2deg);
         }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
-    <!-- Header/Navigation -->
+    <!-- Header -->
     <header class="bg-white shadow-sm">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="text-2xl font-bold title-font text-wine">A Voz do Lado de Cá</div>
-            <div class="hidden md:flex space-x-8">
-                <a href="#sobre" class="hover:text-burnt-orange transition">Sobre</a>
-                <a href="#destaques" class="hover:text-burnt-orange transition">Destaques</a>
-                <a href="#depoimentos" class="hover:text-burnt-orange transition">Depoimentos</a>
-                <a href="#autor" class="hover:text-burnt-orange transition">Autor</a>
-            </div>
-            <a href="https://pag.ae/7_Npr8N4u" class="bg-burnt-orange text-white px-4 py-2 rounded-md hover:bg-wine transition md:ml-4">
-                Compre Agora
-            </a>
-            <button class="md:hidden text-wine">
-                <i class="fas fa-bars text-2xl"></i>
-            </button>
-        </nav>
+        <div class="container mx-auto px-4 py-6 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-purple-800 title-font">A Voz do Lado de Cá</h1>
+            <a href="#comprar" class="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded-full font-semibold transition duration-300">Comprar Agora</a>
+        </div>
     </header>
 
-    <!-- Hero Banner -->
-    <section class="bg-gradient-to-r from-wine/10 to-burnt-orange/10 py-16">
-        <div class="container mx-auto px-6 flex flex-col md:flex-row items-center">
-            <div class="md:w-1/2 mb-10 md:mb-0">
-                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold title-font text-wine mb-4">A Voz do Lado de Cá</h1>
-                <p class="text-xl text-gray-700 mb-6">Por <span class="font-semibold text-burnt-orange">Patrick Urquidi</span></p>
-                <p class="text-2xl md:text-3xl italic text-gray-700 mb-8">"É mais que um livro. É um manifesto."</p>
-                <a href="https://pag.ae/7_Npr8N4u" class="bg-wine text-white px-8 py-3 rounded-md text-lg hover:bg-burnt-orange transition inline-block">
-                    Compre Agora
-                </a>
+    <!-- Hero Section -->
+    <section class="py-16 md:py-24 bg-gradient-to-br from-purple-50 to-indigo-50">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 title-font leading-tight">
+                    <span class="highlight">É mais que um livro.</span><br>
+                    <span class="highlight">É um manifesto.</span>
+                </h2>
+                <p class="text-xl text-gray-600 mb-8">Uma narrativa poderosa sobre juventude, educação e resistência das periferias brasileiras.</p>
+                <div class="flex items-center mb-8">
+                    <span class="text-3xl font-bold text-purple-800 mr-4">R$ 9,99</span>
+                    <a href="https://pag.ae/7_Npr8N4u" id="comprar" class="btn-primary text-white px-8 py-3 rounded-full font-semibold text-lg shadow-lg">Comprar E-book</a>
+                </div>
+                <p class="text-gray-500">Entrega instantânea • Formato PDF e EPUB</p>
             </div>
             <div class="md:w-1/2 flex justify-center">
-                <div class="w-64 h-96 bg-gradient-to-br from-wine to-burnt-orange rounded-md book-shadow flex items-center justify-center">
-                    <span class="text-white text-xl font-bold rotate-90">CAPA DO LIVRO</span>
-                </div>
+                <img src="https://via.placeholder.com/400x600/6b46c1/ffffff?text=Capa+do+Livro" alt="Capa do Livro A Voz do Lado de Cá" class="book-cover rounded-lg w-full max-w-xs md:max-w-md">
             </div>
         </div>
     </section>
 
-    <!-- Sobre o Livro -->
-    <section id="sobre" class="py-16 bg-white">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold title-font text-center text-wine mb-12">Sobre o Livro</h2>
-            <div class="max-w-3xl mx-auto text-lg text-gray-700 leading-relaxed">
-                <p class="mb-6">"A Voz do Lado de Cá" é uma obra que ressoa com a autenticidade das ruas, das vielas e dos corações brasileiros. Patrick Urquidi tece narrativas que capturam a essência do cotidiano, transformando histórias aparentemente simples em poderosos retratos da condição humana.</p>
-                <p class="mb-6">Através de uma escrita que oscila entre o poético e o cru, o autor dá voz aos que muitas vezes são silenciados - os trabalhadores, os sonhadores, os lutadores do dia a dia. Cada página é um convite a enxergar o mundo com novos olhos, a perceber a beleza e a dor que coexistem em nossa realidade.</p>
-                <p>Mais que uma coletânea de textos, este livro é um manifesto pela empatia, pela justiça social e pelo poder transformador das palavras. Uma leitura essencial para quem busca compreender o Brasil em sua complexidade e beleza.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Destaques -->
-    <section id="destaques" class="py-16 bg-gray-50">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold title-font text-center text-wine mb-12">Por que ler este livro?</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Destaque 1 -->
-                <div class="bg-white p-8 rounded-lg highlight-card transition duration-300">
-                    <div class="text-burnt-orange text-4xl mb-4">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Representatividade e realidade brasileira</h3>
-                    <p class="text-gray-700">Um retrato autêntico do Brasil contemporâneo, dando voz às histórias que normalmente não são contadas. O livro captura a essência do povo brasileiro em sua diversidade e resistência.</p>
-                </div>
-                
-                <!-- Destaque 2 -->
-                <div class="bg-white p-8 rounded-lg highlight-card transition duration-300">
-                    <div class="text-burnt-orange text-4xl mb-4">
-                        <i class="fas fa-pen-fancy"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Escrita acessível e poética</h3>
-                    <p class="text-gray-700">Patrick Urquidi domina a arte de dizer muito com poucas palavras. Sua escrita é ao mesmo tempo simples e profunda, capaz de emocionar e provocar reflexões duradouras.</p>
-                </div>
-                
-                <!-- Destaque 3 -->
-                <div class="bg-white p-8 rounded-lg highlight-card transition duration-300">
-                    <div class="text-burnt-orange                     <div class="text-burnt-orange text-4xl mb-4">
-                        text-4xl mb-4">
-                        <i class="fas fa-heart"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Ideal para leitores conscientes</h3>
-                    <p class="text-gray-700">Para quem busca mais que entretenimento, mas sim uma experiência transformadora. Este livro alimenta a mente e o coração, inspirando ação e mudança.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Depoimentos -->
-    <section id="depoimentos" class="py-16 bg-white">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold title-font text-center text-wine mb-12">O que dizem os leitores</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Depoimento 1 -->
-                <div class="bg-gray-50 p-6 rounded-lg testimonial-card border-l-4 border-burnt-orange">
-                    <div class="text-yellow-400 mb-2">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p class="italic text-gray-700 mb-4">"Um soco no estômago e um abraço no coração. Não consigo parar de pensar nas histórias."</p>
-                    <p class="font-semibold text-burnt-orange">— Ana, São Paulo</p>
-                </div>
-                
-                <!-- Depoimento 2 -->
-                <div class="bg-gray-50 p-6 rounded-lg testimonial-card border-l-4 border-wine">
-                    <div class="text-yellow-400 mb-2">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p class="italic text-gray-700 mb-4">"Finalmente um livro que fala do Brasil real, sem clichês ou romantizações fáceis. Leitura obrigatória!"</p>
-                    <p class="font-semibold text-wine">— Carlos, Rio de Janeiro</p>
-                </div>
-                
-                <!-- Depoimento 3 -->
-                <div class="bg-gray-50 p-6 rounded-lg testimonial-card border-l-4 border-burnt-orange">
-                    <div class="text-yellow-400 mb-2">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
-                    <p class="italic text-gray-700 mb-4">"Patrick tem o dom de transformar o ordinário em extraordinário. Cada história é uma pequena joia."</p>
-                    <p class="font-semibold text-burnt-orange">— Mariana, Belo Horizonte</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Formatos -->
-    <section class="py-16 bg-gradient-to-r from-wine/10 to-burnt-orange/10">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold title-font text-center text-wine mb-12">Escolha seu formato</h2>
-            <div class="max-w-md mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="bg-white p-8 rounded-lg text-center border-2 border-burnt-orange">
-                    <div class="text-burnt-orange text-4xl mb-4">
-                        <i class="fas fa-tablet-alt"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">eBook</h3>
-                    <p class="text-gray-700 mb-4">Leia em qualquer dispositivo, a qualquer momento.</p>
-                    <a href="https://pag.ae/7_Npr8N4u" class="bg-burnt-orange text-white px-6 py-2 rounded-md hover:bg-wine transition inline-block">
-                        Comprar eBook
-                    </a>
-                </div>
-                
-                <div class="bg-white p-8 rounded-lg text-center border-2 border-wine">
-                    <div class="text-wine text-4xl mb-4">
-                        <i class="fas fa-book"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Versão Física</h3>
-                    <p class="text-gray-700 mb-4">Para quem ama o cheiro e o tato das páginas.</p>
-                    <a href="https://pag.ae/7_Npr8N4u" class="bg-wine text-white px-6 py-2 rounded-md hover:bg-burnt-orange transition inline-block">
-                        Comprar Livro
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Newsletter -->
+    <!-- About the Book -->
     <section class="py-16 bg-white">
-        <div class="container mx-auto px-6 max-w-4xl">
-            <div class="bg-gradient-to-r from-wine to-burnt-orange rounded-lg p-8 text-white">
-                <h2 class="text-2xl font-bold title-font mb-4">Receba conteúdos exclusivos</h2>
-                <p class="mb-6">Cadastre-se para receber novidades sobre o livro, trechos exclusivos e reflexões do autor.</p>
-                <form class="flex flex-col sm:flex-row gap-4">
-                    <input type="email" placeholder="Seu melhor e-mail" class="flex-grow px-4 py-3 rounded-md text-gray-800 focus:outline-none focus:ring-2 focus:ring-white">
-                    <button type="submit" class="bg-white text-wine px-6 py-3 rounded-md font-bold hover:bg-gray-100 transition">
-                        Quero Receber
-                    </button>
-                </form>
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-12 text-center title-font">Sobre o Livro</h2>
+            <div class="max-w-4xl mx-auto">
+                <p class="text-lg mb-6 leading-relaxed">Num território marcado pelo silêncio, pela exclusão e pela luta diária por dignidade, surge uma narrativa poderosa sobre juventude, educação e resistência.</p>
+                <p class="text-lg mb-6 leading-relaxed">Ísis, uma professora determinada, une forças com jovens artistas e educadores de uma comunidade periférica para transformar o que sempre foi esquecido em potência criativa.</p>
+                <p class="text-lg mb-6 leading-relaxed">Com linguagem acessível, sensível e profundamente envolvente, Patrick Urquidi dá voz a personagens que poderiam estar ao nosso lado: alunos sonhadores, mães que sustentam sozinhas os lares, professores que não desistem e artistas que fazem da dor, poesia.</p>
+                <p class="text-lg mb-8 leading-relaxed font-semibold text-purple-800">"A Voz do Lado de Cá" é um romance sobre pertencimento, feridas sociais e o poder da palavra. Ideal para quem busca uma leitura verdadeira, intensa e urgente. Um chamado para que o Brasil escute o que vem das bordas.</p>
+                <div class="text-center mt-12">
+                    <a href="https://pag.ae/7_Npr8N4u" class="btn-primary text-white px-8 py-3 rounded-full font-semibold text-lg inline-block">Quero meu exemplar agora</a>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Sobre o Autor -->
-    <section id="autor" class="py-16 bg-gray-50">
-        <div class="container mx-auto px-6">
+    <!-- Testimonials -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-12 text-center title-font">O que dizem os leitores</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-white p-8 rounded-xl testimonial-card shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center text-purple-600 font-bold mr-4">A</div>
+                        <div>
+                            <h4 class="font-bold">Ana Clara</h4>
+                            <div class="flex text-yellow-400">
+                                ★ ★ ★ ★ ★
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"Não consegui parar de ler! O livro me transportou para realidades que eu desconhecia, mesmo morando na mesma cidade. Uma narrativa necessária e urgente."</p>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-white p-8 rounded-xl testimonial-card shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center text-purple-600 font-bold mr-4">R</div>
+                        <div>
+                            <h4 class="font-bold">Ricardo</h4>
+                            <div class="flex text-yellow-400">
+                                ★ ★ ★ ★ ★
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"Como educador, me identifiquei profundamente com a história. O autor consegue captar com sensibilidade os desafios e as pequenas vitórias do dia a dia nas escolas."</p>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="bg-white p-8 rounded-xl testimonial-card shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center text-purple-600 font-bold mr-4">M</div>
+                        <div>
+                            <h4 class="font-bold">Mariana</h4>
+                            <div class="flex text-yellow-400">
+                                ★ ★ ★ ★ ★
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"Terminei o livro em lágrimas. A forma como o Patrick dá voz aos personagens é magistral. Uma obra que todo brasileiro deveria ler para entender melhor nosso país."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About the Author -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
             <div class="flex flex-col md:flex-row items-center">
                 <div class="md:w-1/3 mb-8 md:mb-0 flex justify-center">
-                    <div class="w-48 h-48 rounded-full bg-gradient-to-br from-wine to-burnt-orange flex items-center justify-center text-white text-xl font-bold">
-                        Foto do Autor
-                    </div>
+                    <img src="https://via.placeholder.com/300x300/6b46c1/ffffff?text=Patrick+Urquidi" alt="Patrick Urquidi" class="rounded-full w-48 h-48 md:w-64 md:h-64 object-cover border-4 border-purple-100">
                 </div>
                 <div class="md:w-2/3 md:pl-12">
-                    <h2 class="text-3xl font-bold title-font text-wine mb-6">Sobre o Autor</h2>
-                    <div class="text-lg text-gray-700 leading-relaxed">
-                        <p class="mb-4">Patrick Urquidi descobriu a escrita como vocação aos quinze anos, quando compôs sua primeira música. Desde então, nunca mais parou.</p>
-                        <p class="mb-4">Com um olhar atento para as histórias do cotidiano, ele transforma sentimentos reais em palavras que tocam, provocam e inspiram. É autor de livros, músicas e projetos que conectam arte, educação e transformação social.</p>
-                        <p>"A Voz do Lado de Cá" é fruto dessa escuta profunda: um gesto de amor às vozes muitas vezes esquecidas.</p>
-                    </div>
+                    <h2 class="text-3xl font-bold mb-6 title-font">Sobre o Autor</h2>
+                    <p class="text-lg mb-4 leading-relaxed">Patrick Urquidi descobriu a escrita como vocação aos quinze anos, quando compôs sua primeira música. Desde então, nunca mais parou.</p>
+                    <p class="text-lg mb-4 leading-relaxed">Com um olhar atento para as histórias do cotidiano, transforma sentimentos reais em palavras que tocam, provocam e inspiram. É autor de livros, músicas e projetos que conectam arte, educação e transformação social.</p>
+                    <p class="text-lg leading-relaxed font-semibold text-purple-800">"A Voz do Lado de Cá" é fruto dessa escuta profunda: um gesto de amor às vozes muitas vezes esquecidas.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA Final -->
-    <section class="py-16 bg-wine text-white">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-3xl font-bold title-font mb-6">Pronto para esta experiência literária?</h2>
-            <p class="text-xl mb-8 max-w-2xl mx-auto">Adquira agora seu exemplar de "A Voz do Lado de Cá" e embarque nesta jornada de descobertas.</p>
-            <a href="https://pag.ae/7_Npr8N4u" class="bg-burnt-orange text-white px-8 py-4 rounded-md text-lg hover:bg-white hover:text-wine transition inline-block font-bold">
-                Compre Agora
-            </a>
+    <!-- Email Capture -->
+    <section class="py-16 bg-purple-800 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-6 title-font">Receba conteúdos exclusivos do autor</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">Cadastre seu e-mail para receber materiais exclusivos, novidades sobre lançamentos e reflexões do Patrick Urquidi.</p>
+            <form class="max-w-md mx-auto flex flex-col sm:flex-row gap-4">
+                <input type="email" placeholder="Seu melhor e-mail" class="flex-grow px-4 py-3 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-purple-500">
+                <button type="submit" class="bg-white text-purple-800 font-semibold px-6 py-3 rounded-lg hover:bg-gray-100 transition duration-300">Cadastrar</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-6 title-font">Pronto para essa leitura transformadora?</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">Adquira agora mesmo seu e-book e embarque nessa jornada literária.</p>
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-6">
+                <a href="https://pag.ae/7_Npr8N4u" class="btn-primary text-white px-8 py-4 rounded-full font-semibold text-lg shadow-lg">Comprar por R$ 9,99</a>
+                <div class="flex items-center">
+                    <div class="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center text-purple-600 mr-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                        </svg>
+                    </div>
+                    <span>Entrega instantânea</span>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="bg-gray-900 text-white py-12">
-        <div class="container mx-auto px-6">
+        <div class="container mx-auto px-4">
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <div class="mb-6 md:mb-0">
                     <h3 class="text-2xl font-bold title-font mb-2">A Voz do Lado de Cá</h3>
-                    <p class="text-gray-400">© Patrick Urquidi – Todos os direitos reservados</p>
+                    <p class="text-gray-400">Um manifesto literário de Patrick Urquidi</p>
                 </div>
-                
-                <div class="mb-6 md:mb-0">
-                    <h4 class="text-lg font-semibold mb-3">Contato</h4>
-                    <p class="text-gray-400">contato@patrickurquidi.com</p>
+                <div class="text-center md:text-right">
+                    <p class="text-gray-400 mb-2">Dúvidas ou suporte:</p>
+                    <a href="mailto:compositor.patrick@gmail.com" class="text-white hover:text-purple-300 transition duration-300 text-lg">compositor.patrick@gmail.com</a>
                 </div>
-                
-                <div>
-                    <h4 class="text-lg font-semibold mb-3">Redes Sociais</h4>
-                    <div class="flex space-x-4">
-                        <a href="#" class="text-gray-400 hover:text-white text-xl transition">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-white text-xl transition">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-white text-xl transition">
-                            <i class="fab fa-facebook"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-white text-xl transition">
-                            <i class="fab fa-youtube"></i>
-                        </a>
-                    </div>
-                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500">
+                <p>© 2023 Patrick Urquidi. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Mobile menu toggle functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const mobileMenuButton = document.querySelector('button.md\\:hidden');
-            const mobileMenu = document.querySelector('.hidden.md\\:flex');
-            
-            mobileMenuButton.addEventListener('click', function() {
-                mobileMenu.classList.toggle('hidden');
-                mobileMenu.classList.toggle('flex');
-                mobileMenu.classList.toggle('flex-col');
-                mobileMenu.classList.toggle('absolute');
-                mobileMenu.classList.toggle('top-16');
-                mobileMenu.classList.toggle('left-0');
-                mobileMenu.classList.toggle('right-0');
-                mobileMenu.classList.toggle('bg-white');
-                mobileMenu.classList.toggle('p-4');
-                mobileMenu.classList.toggle('shadow-md');
-                mobileMenu.classList.toggle('space-y-4');
-                mobileMenu.classList.toggle('space-x-0');
-            });
-            
-            // Smooth scrolling for anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                    
-                    // Close mobile menu if open
-                    if (!mobileMenu.classList.contains('hidden')) {
-                        mobileMenu.classList.add('hidden');
-                        mobileMenu.classList.remove('flex', 'flex-col', 'absolute', 'top-16', 'left-0', 'right-0', 'bg-white', 'p-4', 'shadow-md', 'space-y-4', 'space-x-0');
-                    }
-                });
-            });
+        // Simple form submission handler
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = e.target.querySelector('input[type="email"]').value;
+            if (email) {
+                alert('Obrigado por se cadastrar! Em breve você receberá conteúdos exclusivos.');
+                e.target.querySelector('input[type="email"]').value = '';
+            }
         });
     </script>
 </body>
